@@ -1,6 +1,5 @@
 package demo.page;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,23 +22,23 @@ public class FileUpload {
     public FileUpload() {
     }
 
-    public void goToPage() {
+    private void goToUploadPage() {
         pageLink.click();
     }
 
-    public void chooseFile(String fileToUpload) {
+    private void chooseFile(String fileToUpload) {
         String filename = fileToUpload;
         File file = new File(filename);
         String path = file.getAbsolutePath();
         uploadButton.sendKeys(path);
     }
 
-    public void submitFile() {
+    private void submitFile() {
         submitFileButton.click();
     }
 
     public String uploadFile(String fileToUpload) {
-        goToPage();
+        goToUploadPage();
         chooseFile(fileToUpload);
         submitFile();
         return uploadedFile.getText();
