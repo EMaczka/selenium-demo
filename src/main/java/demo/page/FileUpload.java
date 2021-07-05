@@ -29,7 +29,7 @@ public class FileUpload {
     private void chooseFile(String fileToUpload) {
         String filename = fileToUpload;
         File file = new File(filename);
-        String path = file.getAbsolutePath();
+        String path = file.getAbsolutePath(); //make sure the fileToUpload is in the project main folder
         uploadButton.sendKeys(path);
     }
 
