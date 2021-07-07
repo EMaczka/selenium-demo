@@ -19,4 +19,13 @@ public class BasicTestsRun extends TestBase{
                 .uploadFile("file");
         Assertions.assertEquals("file", result);
     }
+
+    @Test
+    public void downloadFile() throws Exception {
+
+        Integer statusCode = pageObjectManager.getHttpDownload()
+                .checkHttp();
+        Assertions.assertEquals(200,statusCode);
+
+    }
 }
