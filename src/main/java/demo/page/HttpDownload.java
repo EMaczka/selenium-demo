@@ -7,37 +7,46 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HttpDownload {
 
     @FindBy(linkText = "File Download")
     private WebElement pageLink;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[1]/a[1]")
-    private WebElement file;
+    @FindBy (tagName = "a")
+    private List<WebElement> allLinks;
 
     private void goToDownloadPage() {
         pageLink.click();
     }
 
-    private int getStatusCode() throws Exception {
+    private List<Integer> getStatusCode() throws Exception {
 
-        String link = file.getAttribute("href");
+        List<HttpResponse> responses = new ArrayList<>();
+        List<Integer> statusCodes = new ArrayList<>();
+        for (int i = 1; i < allLinks.size()-1 ; i++) {
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(link))
-                .build();
+            HttpClient client = HttpClient.newHttpClient();
 
-        HttpResponse response = client.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(allLinks.get(i).getAttribute("href")))
+                    .build();
 
-        return  response.statusCode();
+            responses.add(client.send(request, java.net.http.HttpResponse.BodyHandlers.ofString()));
+        }
+
+        for (HttpResponse response : responses) {
+            statusCodes.add(response.statusCode());
+        }
+        return  statusCodes;
     }
 
     public HttpDownload() {
     }
 
-    public Integer checkHttp() throws Exception {
+    public List<Integer> checkHttp() throws Exception {
         goToDownloadPage();
         return getStatusCode();
     }

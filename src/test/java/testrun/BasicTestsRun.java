@@ -3,6 +3,8 @@ package testrun;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class BasicTestsRun extends TestBase{
 
     @Test
@@ -21,11 +23,12 @@ public class BasicTestsRun extends TestBase{
     }
 
     @Test
-    public void downloadFile() throws Exception {
+    public void downloadFileTest() throws Exception {
 
-        Integer statusCode = pageObjectManager.getHttpDownload()
+        List<Integer> statusCodes = pageObjectManager.getHttpDownload()
                 .checkHttp();
-        Assertions.assertEquals(200,statusCode);
-
+        for (Integer statusCode : statusCodes) {
+            Assertions.assertEquals(200,statusCode);
+        }
     }
 }
