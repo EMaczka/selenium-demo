@@ -9,6 +9,7 @@ public class PageObjectManager {
     private FileUpload fileUpload;
     private FileDownload fileDownload;
     private HttpDownload httpDownload;
+    private NestedFrames nestedFrames;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -33,5 +34,12 @@ public class PageObjectManager {
             httpDownload = PageFactory.initElements(driver, HttpDownload.class);
         }
         return httpDownload;
+    }
+
+    public NestedFrames getNestedFrames() {
+        if (nestedFrames == null) {
+            nestedFrames = PageFactory.initElements(driver, NestedFrames.class);
+        }
+        return nestedFrames;
     }
 }

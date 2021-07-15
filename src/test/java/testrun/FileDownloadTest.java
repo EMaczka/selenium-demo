@@ -14,6 +14,8 @@ import static driver.WebDriverCreator.CHROMEDRIVER_PATH;
 
 public class FileDownloadTest {
 
+    //This class checks the same functionality as downloadFileTest() in BasicTestsRun
+
     private ChromeDriver driver;
     private PageObjectManager pageObjectManager;
     private static final String URL = "https://the-internet.herokuapp.com/";

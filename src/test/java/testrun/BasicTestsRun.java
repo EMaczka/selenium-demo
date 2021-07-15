@@ -3,6 +3,8 @@ package testrun;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BasicTestsRun extends TestBase{
@@ -30,5 +32,16 @@ public class BasicTestsRun extends TestBase{
         for (Integer statusCode : statusCodes) {
             Assertions.assertEquals(200,statusCode);
         }
+    }
+
+    @Test
+    public void nestedFramesTest() throws Exception {
+
+        ArrayList<String> framesNames = pageObjectManager.getNestedFrames()
+                .getFrameNames(driver);
+        ArrayList<String> frames = new ArrayList<String>(
+                Arrays.asList("LEFT", "MIDDLE", "RIGHT", "BOTTOM"));
+        Assertions.assertEquals(frames, framesNames);
+
     }
 }

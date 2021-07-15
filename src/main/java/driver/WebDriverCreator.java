@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverCreator {
 
-    public static String CHROMEDRIVER_PATH = "src/main/resources/seleniumdrivers/chromedrivers/chromedriver-win32/chromedriver.exe";
+    public static String CHROMEDRIVER_PATH = "src/main/resources/seleniumdrivers/chromedrivers/chromedriver-win32/chromedriver93.exe";
 
     public WebDriver createDriver(String browser) {
         switch (browser) {
