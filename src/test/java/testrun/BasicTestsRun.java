@@ -42,6 +42,13 @@ public class BasicTestsRun extends TestBase{
         ArrayList<String> frames = new ArrayList<String>(
                 Arrays.asList("LEFT", "MIDDLE", "RIGHT", "BOTTOM"));
         Assertions.assertEquals(frames, framesNames);
+    }
 
+    @Test
+    public void iFrameTest() throws Exception {
+
+        String text = "new text in editor";
+        String fillingTest = pageObjectManager.getIFrame().writeInEditor(driver, text);
+        Assertions.assertEquals(text, fillingTest);
     }
 }
