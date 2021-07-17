@@ -51,4 +51,11 @@ public class BasicTestsRun extends TestBase{
         String fillingTest = pageObjectManager.getIFrame().writeInEditor(driver, text);
         Assertions.assertEquals(text, fillingTest);
     }
+
+    @Test
+    public void multipleWindowsTest() throws Exception {
+
+        pageObjectManager.getMultipleWindows().switchWindow(driver);
+        Assertions.assertEquals("New Window", driver.getTitle());
+    }
 }

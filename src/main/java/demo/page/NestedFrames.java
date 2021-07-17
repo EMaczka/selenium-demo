@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NestedFrames {
 
@@ -31,7 +30,6 @@ public class NestedFrames {
         driver.switchTo().frame(frameName);
     }
 
-
     public ArrayList<String> getFrameNames(WebDriver driver) {
         goToNestedFramePage();
         ArrayList<String> names = new ArrayList<>();
@@ -51,11 +49,4 @@ public class NestedFrames {
         names.add(frameText.getText());
         return names;
     }
-
-
-
-
-
-
-
 }

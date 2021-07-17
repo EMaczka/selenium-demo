@@ -11,6 +11,7 @@ public class PageObjectManager {
     private HttpDownload httpDownload;
     private NestedFrames nestedFrames;
     private IFrame iFrame;
+    private MultipleWindows multipleWindows;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -49,5 +50,12 @@ public class PageObjectManager {
             iFrame = PageFactory.initElements(driver, IFrame.class);
         }
         return iFrame;
+    }
+
+    public MultipleWindows getMultipleWindows() {
+        if (multipleWindows == null) {
+            multipleWindows = PageFactory.initElements(driver, MultipleWindows.class);
+        }
+        return multipleWindows;
     }
 }
