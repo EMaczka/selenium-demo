@@ -12,6 +12,7 @@ public class PageObjectManager {
     private NestedFrames nestedFrames;
     private IFrame iFrame;
     private MultipleWindows multipleWindows;
+    private DropdownList dropdownList;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -57,5 +58,12 @@ public class PageObjectManager {
             multipleWindows = PageFactory.initElements(driver, MultipleWindows.class);
         }
         return multipleWindows;
+    }
+
+    public DropdownList getDropdownList() {
+        if (dropdownList == null) {
+            dropdownList = PageFactory.initElements(driver, DropdownList.class);
+        }
+        return dropdownList;
     }
 }

@@ -58,4 +58,12 @@ public class BasicTestsRun extends TestBase{
         pageObjectManager.getMultipleWindows().switchWindow(driver);
         Assertions.assertEquals("New Window", driver.getTitle());
     }
+
+    @Test
+    public void dropdownListTest() throws Exception {
+
+        String option = "Option 1";
+        String selected = pageObjectManager.getDropdownList().checkOption(option);
+        Assertions.assertEquals(option, selected);
+    }
 }
