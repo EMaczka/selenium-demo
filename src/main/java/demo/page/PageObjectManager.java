@@ -13,6 +13,7 @@ public class PageObjectManager {
     private IFrame iFrame;
     private MultipleWindows multipleWindows;
     private DropdownList dropdownList;
+    private BasicAuth basicAuth;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -65,5 +66,12 @@ public class PageObjectManager {
             dropdownList = PageFactory.initElements(driver, DropdownList.class);
         }
         return dropdownList;
+    }
+
+    public BasicAuth getBasicAuth() {
+        if (basicAuth == null) {
+            basicAuth = PageFactory.initElements(driver, BasicAuth.class);
+        }
+        return basicAuth;
     }
 }

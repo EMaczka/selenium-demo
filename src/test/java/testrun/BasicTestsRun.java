@@ -66,4 +66,12 @@ public class BasicTestsRun extends TestBase{
         String selected = pageObjectManager.getDropdownList().checkOption(option);
         Assertions.assertEquals(option, selected);
     }
+
+    @Test
+    public void basicAuth() throws Exception {
+
+        String pageMessage = "Congratulations!";
+        String displayedText = pageObjectManager.getBasicAuth().getMessage(driver);
+        Assertions.assertTrue(displayedText.contains(pageMessage));
+    }
 }
