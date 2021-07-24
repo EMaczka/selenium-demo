@@ -3,11 +3,12 @@ package driver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverCreator {
 
-    public static String CHROMEDRIVER_PATH = "src/main/resources/seleniumdrivers/chromedrivers/chromedriver-win32/chromedriver94.exe";
+    public static String CHROMEDRIVER_PATH = "src/main/resources/seleniumdrivers/chromedrivers/chromedriver-win32/chromedriver.exe";
 
     public WebDriver createDriver(String browser) {
         switch (browser) {
@@ -16,7 +17,8 @@ public class WebDriverCreator {
                 WebDriver chromeDriver = new ChromeDriver();
                 setDefaultSettings(chromeDriver);
                 return chromeDriver;
-
+            case "headless":
+                return new HtmlUnitDriver();
             default:
                 throw new IllegalArgumentException("The browser type is undefined");
         }
