@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="selenium-demo" />
+        <module name="ui" />
+        <module name="common-utils" />
+        <module name="api" />
       </profile>
     </annotationProcessing>
   </component>
