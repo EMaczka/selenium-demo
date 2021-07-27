@@ -1,4 +1,4 @@
-package testrun;
+package demo.testrun;
 
 import demo.page.CommonTestSteps;
 import demo.utils.PageObjectManager;
@@ -11,6 +11,7 @@ import java.util.List;
 
 public class FileDownloadTest {
 
+    public static String browser=null;
     protected WebDriver driver;
     protected CommonTestSteps commonTestSteps;
     protected PageObjectManager pageObjectManager;
@@ -19,7 +20,8 @@ public class FileDownloadTest {
     @Test
     public void downloadFileTest() throws Exception {
 
-        driver = new WebDriverCreator().createDriver("chrome");
+        PropertiesReader.readPropertiesFile();
+        driver = new WebDriverCreator().createDriver(browser);
         commonTestSteps = new CommonTestSteps(driver);
         pageObjectManager = new PageObjectManager(driver);
         commonTestSteps.loadMainPage(URL);

@@ -1,4 +1,4 @@
-package testrun.testdata;
+package demo.testrun.testdata;
 
 public class UserDataProvider {
 }
