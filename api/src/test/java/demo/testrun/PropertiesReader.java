@@ -1,5 +1,7 @@
 package demo.testrun;
 
+import demo.testrun.FileDownloadTest;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;

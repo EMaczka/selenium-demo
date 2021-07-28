@@ -23,6 +23,10 @@ public class BasicTestsRun extends TestBase{
         Assertions.assertEquals("file", result);
     }
 
+    @Test
+    public void checkboxTest() throws Exception {
+        Assertions.assertTrue(pageObjectManager.getCheckbox().areEditableTest());
+    }
 
     @Test
     public void nestedFramesTest() throws Exception {

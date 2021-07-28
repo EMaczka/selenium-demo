@@ -12,6 +12,7 @@ public class PageObjectManager {
     private MultipleWindows multipleWindows;
     private DropdownList dropdownList;
     private BasicAuth basicAuth;
+    private Checkbox checkbox;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -57,5 +58,12 @@ public class PageObjectManager {
             basicAuth = PageFactory.initElements(driver, BasicAuth.class);
         }
         return basicAuth;
+    }
+
+    public Checkbox getCheckbox() {
+        if (checkbox == null) {
+            checkbox = PageFactory.initElements(driver, Checkbox.class);
+        }
+        return checkbox;
     }
 }
