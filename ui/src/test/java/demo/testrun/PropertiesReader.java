@@ -17,6 +17,5 @@ public class PropertiesReader {
         properties.load(inputStream);
         String browser = properties.getProperty("browser");
         TestBase.browser=browser;
-        System.out.println(browser);
     }
 }

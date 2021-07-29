@@ -1,5 +1,7 @@
 package driver;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,6 +13,8 @@ public class WebDriverCreator {
 
     public static String CHROMEDRIVER_PATH = "../common-utils/src/main/resources/seleniumdrivers/chromedrivers/chromedriver-win32/chromedriver.exe";
     public static String FIREFOXDRIVER_PATH = "../common-utils/src/main/resources/seleniumdrivers/firefoxdrivers/geckodriver-v0.30.0-win32/geckodriver.exe";
+
+    private static Logger logger = LogManager.getLogger(WebDriverCreator.class);
 
     public WebDriver createDriver(String browser) {
         switch (browser) {
@@ -27,6 +31,7 @@ public class WebDriverCreator {
                 setDefaultSettings(firefoxDriver);
                 return firefoxDriver;
             default:
+                logger.warn("Incorrect browser defined");
                 throw new IllegalArgumentException("The browser type is undefined");
         }
     }
