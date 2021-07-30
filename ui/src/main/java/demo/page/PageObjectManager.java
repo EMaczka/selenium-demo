@@ -13,6 +13,7 @@ public class PageObjectManager {
     private DropdownList dropdownList;
     private BasicAuth basicAuth;
     private Checkbox checkbox;
+    private Hover hover;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -65,5 +66,12 @@ public class PageObjectManager {
             checkbox = PageFactory.initElements(driver, Checkbox.class);
         }
         return checkbox;
+    }
+
+    public Hover getHover() {
+        if (hover == null) {
+            hover = PageFactory.initElements(driver, Hover.class);
+        }
+        return hover;
     }
 }

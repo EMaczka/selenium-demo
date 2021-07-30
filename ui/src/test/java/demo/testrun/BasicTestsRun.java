@@ -62,10 +62,17 @@ public class BasicTestsRun extends TestBase{
     }
 
     @Test
-    public void basicAuth() throws Exception {
+    public void basicAuthTest() throws Exception {
 
         String pageMessage = "Congratulations!";
         String displayedText = pageObjectManager.getBasicAuth().getMessage(driver);
         Assertions.assertTrue(displayedText.contains(pageMessage));
+    }
+
+    @Test
+    public void hoverTest() throws Exception {
+
+        boolean isHoverDisplayCaptions = pageObjectManager.getHover().isCaptionVisible(driver);
+        Assertions.assertTrue(isHoverDisplayCaptions);
     }
 }
