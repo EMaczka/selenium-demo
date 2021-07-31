@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class BasicTestsRun extends TestBase{
+public class BasicTestsRun extends TestBase {
 
     @Test
     public void isPageTitleCorrect() throws Exception {
 
         String title = driver.getTitle();
-        Assertions.assertEquals(title,"The Internet");
+        Assertions.assertEquals(title, "The Internet");
     }
 
     @Test
@@ -74,5 +74,19 @@ public class BasicTestsRun extends TestBase{
 
         boolean isHoverDisplayCaptions = pageObjectManager.getHover().isCaptionVisible(driver);
         Assertions.assertTrue(isHoverDisplayCaptions);
+    }
+
+    @Test
+    public void JavaScriptAlertsTest() throws Exception {
+
+        String JSAlertResultText = "You successfully clicked an alert";
+
+        String JSConfirmResultText = "You clicked: Ok";
+        String JSDismissResultText = "You clicked: Cancel";
+
+        String textToEnterInPrompt = "test";
+        String JSPrompt = "You entered:" + textToEnterInPrompt;
+
+        Assertions.assertEquals(JSAlertResultText, pageObjectManager.getJsAlerts().acceptPopup(driver));
     }
 }

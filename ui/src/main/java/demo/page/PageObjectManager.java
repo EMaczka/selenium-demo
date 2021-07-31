@@ -14,6 +14,7 @@ public class PageObjectManager {
     private BasicAuth basicAuth;
     private Checkbox checkbox;
     private Hover hover;
+    private JsAlerts jsAlerts;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -73,5 +74,12 @@ public class PageObjectManager {
             hover = PageFactory.initElements(driver, Hover.class);
         }
         return hover;
+    }
+
+    public JsAlerts getJsAlerts() {
+        if (jsAlerts == null) {
+            jsAlerts = PageFactory.initElements(driver, JsAlerts.class);
+        }
+        return jsAlerts;
     }
 }
