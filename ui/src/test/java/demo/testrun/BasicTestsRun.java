@@ -94,4 +94,11 @@ public class BasicTestsRun extends TestBase {
         Assertions.assertEquals(jSDismissResultText, pageObjectManager.getJsAlerts().dismissPopup(driver));
         Assertions.assertEquals(jSPrompt, pageObjectManager.getJsAlerts().sendTextToPopup(driver, textToEnterInPrompt));
     }
+
+    @Test
+    public void ContextMenuTest() throws Exception {
+
+        String alertText = "You selected a context menu";
+        Assertions.assertEquals(alertText, pageObjectManager.getContextMenu().getAlertText(driver));
+    }
 }

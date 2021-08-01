@@ -1,5 +1,6 @@
 package demo.page;
 
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,6 +16,7 @@ public class PageObjectManager {
     private Checkbox checkbox;
     private Hover hover;
     private JsAlerts jsAlerts;
+    private ContextMenu contextMenu;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -81,5 +83,12 @@ public class PageObjectManager {
             jsAlerts = PageFactory.initElements(driver, JsAlerts.class);
         }
         return jsAlerts;
+    }
+
+    public ContextMenu getContextMenu() {
+        if (contextMenu == null) {
+            contextMenu = PageFactory.initElements(driver, ContextMenu.class);
+        }
+        return contextMenu;
     }
 }
