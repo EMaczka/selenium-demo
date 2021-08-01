@@ -79,14 +79,19 @@ public class BasicTestsRun extends TestBase {
     @Test
     public void JavaScriptAlertsTest() throws Exception {
 
-        String JSAlertResultText = "You successfully clicked an alert";
+        String jSAlertResultText = "You successfully clicked an alert";
 
-        String JSConfirmResultText = "You clicked: Ok";
-        String JSDismissResultText = "You clicked: Cancel";
+        String jSConfirmResultText = "You clicked: Ok";
+        String jSDismissResultText = "You clicked: Cancel";
 
         String textToEnterInPrompt = "test";
-        String JSPrompt = "You entered:" + textToEnterInPrompt;
+        String jSPrompt = "You entered: " + textToEnterInPrompt;
 
-        Assertions.assertEquals(JSAlertResultText, pageObjectManager.getJsAlerts().acceptPopup(driver));
+        pageObjectManager.getJsAlerts().goToJsAlertsPage();
+
+        Assertions.assertEquals(jSAlertResultText, pageObjectManager.getJsAlerts().acceptPopup(driver));
+        Assertions.assertEquals(jSConfirmResultText, pageObjectManager.getJsAlerts().confirmPopup(driver));
+        Assertions.assertEquals(jSDismissResultText, pageObjectManager.getJsAlerts().dismissPopup(driver));
+        Assertions.assertEquals(jSPrompt, pageObjectManager.getJsAlerts().sendTextToPopup(driver, textToEnterInPrompt));
     }
 }

@@ -25,14 +25,35 @@ public class JsAlerts {
     public JsAlerts() {
     }
 
-    private void goToJsAlertsPage() {
+    public void goToJsAlertsPage() {
         pageLink.click();
     }
 
     public String acceptPopup(WebDriver driver) {
-        goToJsAlertsPage();
         JSAlert.click();
         Alert popup = driver.switchTo().alert();
+        popup.accept();
+        return resultField.getText();
+    }
+
+    public String confirmPopup(WebDriver driver) {
+        JSConfirm.click();
+        Alert popup = driver.switchTo().alert();
+        popup.accept();
+        return resultField.getText();
+    }
+
+    public String dismissPopup(WebDriver driver) {
+        JSConfirm.click();
+        Alert popup = driver.switchTo().alert();
+        popup.dismiss();
+        return resultField.getText();
+    }
+
+    public String sendTextToPopup(WebDriver driver, String text) {
+        JSPrompt.click();
+        Alert popup = driver.switchTo().alert();
+        popup.sendKeys(text);
         popup.accept();
         return resultField.getText();
     }
