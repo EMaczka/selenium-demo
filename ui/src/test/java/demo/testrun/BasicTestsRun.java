@@ -77,7 +77,7 @@ public class BasicTestsRun extends TestBase {
     }
 
     @Test
-    public void JavaScriptAlertsTest() throws Exception {
+    public void javaScriptAlertsTest() throws Exception {
 
         String jSAlertResultText = "You successfully clicked an alert";
 
@@ -96,9 +96,17 @@ public class BasicTestsRun extends TestBase {
     }
 
     @Test
-    public void ContextMenuTest() throws Exception {
+    public void contextMenuTest() throws Exception {
 
         String alertText = "You selected a context menu";
         Assertions.assertEquals(alertText, pageObjectManager.getContextMenu().getAlertText(driver));
+    }
+
+    @Test
+    public void tablesSortTest() throws Exception {
+
+        String columnToBeSorted = "Last Name";    //Last Name, First Name, Email, Due, Website
+        String sortingMethod = "desc";       //DESC or ASC
+        Assertions.assertTrue(pageObjectManager.getTables().isColumnSorted(columnToBeSorted, sortingMethod));
     }
 }

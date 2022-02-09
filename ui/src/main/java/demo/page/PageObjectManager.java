@@ -17,6 +17,7 @@ public class PageObjectManager {
     private Hover hover;
     private JsAlerts jsAlerts;
     private ContextMenu contextMenu;
+    private Tables tables;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -90,5 +91,12 @@ public class PageObjectManager {
             contextMenu = PageFactory.initElements(driver, ContextMenu.class);
         }
         return contextMenu;
+    }
+
+    public Tables getTables() {
+        if (tables == null) {
+            tables = PageFactory.initElements(driver, Tables.class);
+        }
+        return tables;
     }
 }

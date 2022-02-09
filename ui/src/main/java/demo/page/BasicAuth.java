@@ -19,7 +19,7 @@ public class BasicAuth {
         pageLink.click();
     }
 
-    private void provideCredendials(WebDriver driver) {
+    private void provideCredentials(WebDriver driver) {
         goToBasicAuthPage();
         String pageURL = driver.getCurrentUrl();
         String trimmedPageURL = pageURL.replace("https://","");
@@ -28,7 +28,7 @@ public class BasicAuth {
     }
 
     public String getMessage(WebDriver driver) {
-        provideCredendials(driver);
+        provideCredentials(driver);
         return paragraph.getText();
     }
 }
