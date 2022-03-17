@@ -18,6 +18,7 @@ public class PageObjectManager {
     private JsAlerts jsAlerts;
     private ContextMenu contextMenu;
     private Tables tables;
+    private Highlighting highlighting;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -98,5 +99,12 @@ public class PageObjectManager {
             tables = PageFactory.initElements(driver, Tables.class);
         }
         return tables;
+    }
+
+    public Highlighting getHighlighting() {
+        if (highlighting == null) {
+            highlighting = PageFactory.initElements(driver, Highlighting.class);
+        }
+        return highlighting;
     }
 }

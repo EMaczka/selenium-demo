@@ -109,4 +109,10 @@ public class BasicTestsRun extends TestBase {
         String sortingMethod = "desc";       //DESC or ASC
         Assertions.assertTrue(pageObjectManager.getTables().isColumnSorted(columnToBeSorted, sortingMethod));
     }
+
+    @Test
+    public void highlightElementTest() throws Exception {
+
+        pageObjectManager.getHighlighting().highlighting(driver, 3);
+    }
 }
